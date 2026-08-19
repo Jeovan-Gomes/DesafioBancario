@@ -4,13 +4,15 @@ import com.example.desafiobancario.dto.contaresponse;
 import com.example.desafiobancario.model.conta;
 import com.example.desafiobancario.model.users.tipoUsuario;
 import com.example.desafiobancario.repository.contarepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
+@RequiredArgsConstructor
 public class contaservice {
-    @Autowired
+
     private contarepository contaRepository;
 
     public conta findById(String id) {
