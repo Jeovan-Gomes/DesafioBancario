@@ -1,8 +1,8 @@
-package com.example.DesafioBancario.Controller;
+package com.example.desafiobancario.controller;
 
-import com.example.DesafioBancario.DTO.TransacaoDTO;
-import com.example.DesafioBancario.Model.Transacao;
-import com.example.DesafioBancario.Service.TransacaoService;
+import com.example.desafiobancario.dto.transacaorequest;
+import com.example.desafiobancario.dto.transacaoresponse;
+import com.example.desafiobancario.service.transacaoservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/Transacao")
-public class TransacaoController {
+public class transacaocontroller {
     @Autowired
-    private TransacaoService transacaoService;
+    private transacaoservice transacaoService;
 
     @PostMapping("/create")
-    public ResponseEntity<Transacao> CriarTransacao(@RequestBody TransacaoDTO dto){
+    public ResponseEntity<transacaoresponse> CriarTransacao(@RequestBody transacaorequest dto){
         if(dto == null){
             return ResponseEntity.badRequest().build();
         }

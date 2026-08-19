@@ -1,4 +1,4 @@
-package com.example.DesafioBancario.Model;
+package com.example.desafiobancario.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Transacao {
+public class transacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_Transacao;
@@ -19,8 +19,8 @@ public class Transacao {
     private Double valor;
     @JoinColumn
     @ManyToOne(fetch = FetchType.LAZY)
-    private Conta conta1;
+    private conta conta1;
     @JoinColumn
     @ManyToOne(fetch = FetchType.LAZY)
-    private Conta conta2;
+    private conta conta2;
 }

@@ -1,6 +1,6 @@
-package com.example.DesafioBancario.Model;
+package com.example.desafiobancario.model;
 
-import com.example.DesafioBancario.Model.Users.TipoUsuario;
+import com.example.desafiobancario.model.users.tipoUsuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+public class usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -24,5 +24,5 @@ public class Usuario {
     @Column
     private String senha;
     @Column
-    private TipoUsuario tipo;
+    private tipoUsuario tipo;
 }

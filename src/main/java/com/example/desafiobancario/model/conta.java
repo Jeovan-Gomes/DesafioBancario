@@ -1,4 +1,4 @@
-package com.example.DesafioBancario.Model;
+package com.example.desafiobancario.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,12 +13,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Conta {
+public class conta {
     @Id
     private String id;
     @Column
     private Double saldo;
     @JoinColumn
     @OneToOne(cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
-    private Usuario usuario;
+    private usuario usuario;
 }

@@ -63,7 +63,7 @@ flowchart TD
 ## 📂 Estrutura de pastas
 
 ```
-com.example.DesafioBancario
+com.example.desafiobancario
 ├── Controller
 │   ├── TransacaoController
 │   └── UsuarioController
@@ -96,7 +96,7 @@ resources
 └── application.properties
 
 test
-└── java/com.example.DesafioBancario
+└── java/com.example.desafiobancario
     └── Service
         ├── ContaServiceTest
         ├── TransacaoServiceTest
