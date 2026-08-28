@@ -14,7 +14,7 @@ Projeto de estudo hands-on, com foco em consolidar Spring Boot, Spring Data JPA,
 - [x] Testes unitários da camada de Service (Mockito)
 - [ ] Testes da camada de Controller (`@WebMvcTest`)
 - [ ] Testes da camada de Repository (`@DataJpaTest`)
-- [ ] Autenticação e autorização com JWT (Spring Security)
+- [x] Autenticação e autorização com JWT (Spring Security)
 - [ ] Tratamento global de exceções (`@ControllerAdvice`)
 
 ---
@@ -64,7 +64,10 @@ flowchart TD
 
 ```
 com.example.desafiobancario
+├─ config
+|   └─ securityconfig
 ├── Controller
+|   ├── authcontroller
 │   ├── TransacaoController
 │   └── UsuarioController
 ├── DTO
@@ -81,6 +84,11 @@ com.example.desafiobancario
 |   ├── TransacaoRepository
 |   └── UsuarioRepository
 ├── Service
+|   ├─ security
+|         ├─ filter
+|              └─ securityfilter
+|         ├─ autorizationservice
+|         └─ jwtservice
 │   ├── ContaService
 │   ├── TransacaoService
 │   └── UsuarioService
@@ -100,7 +108,7 @@ test
     └── Service
         ├── ContaServiceTest
         ├── TransacaoServiceTest
-        └── UsuarioServiceTest
+        └── UsuarioServiceTest──
 ```
 
 ---
@@ -132,6 +140,8 @@ Como os `Controllers` seguem convenção REST padrão, os endpoints esperados s�
 | `POST` | `/usuario/CadastrarUser` | Cadastra um novo usuário (valida CPF e e-mail duplicados) |
 | `GET` | `/usuario/{id}` | Busca usuário por ID |
 | `POST` | `/transacao/create` | Realiza uma transação entre contas |
+| `POST` | `/Auth/login` | Realiza o login |
+
 
 
 ---
@@ -181,7 +191,7 @@ Cobertura atual: **camada de Service**, com JUnit 5 + Mockito, isolando a lógic
 
 ## 🗺️ Roadmap
 
-- [ ] **Autenticação JWT** com Spring Security — login, geração e validação de token, filtro `OncePerRequestFilter`
+- [x] **Autenticação JWT** com Spring Security — login, geração e validação de token, filtro `OncePerRequestFilter`
 - [ ] Autorização por perfil (`TipoUsuario`) usando `@PreAuthorize` / `SecurityFilterChain`
 - [ ] Tratamento global de exceções (`@ControllerAdvice` + exceptions customizadas de domínio)
 - [ ] Testes de Controller e Repository
