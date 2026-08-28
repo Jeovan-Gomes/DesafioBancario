@@ -32,7 +32,7 @@ class TransacaoServiceTest {
         conta conta2 = new conta("4321", 9214.87, usuario2);
 
 
-        transacaorequest dto = new transacaorequest(100.00, conta1, conta2);
+        transacaorequest dto = new transacaorequest(100.00, conta1.toString(), conta2.toString());
         assertThrows(RuntimeException.class, () -> transacaoService.create(dto));
     }
 

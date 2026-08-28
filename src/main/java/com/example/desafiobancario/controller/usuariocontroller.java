@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class usuariocontroller {
 
-    private usuarioservice usuarioService;
+    private final usuarioservice usuarioService;
 
     @GetMapping("/{cpf}")
     public ResponseEntity<usuariodtoresponse> findByCpf(@PathVariable String cpf){

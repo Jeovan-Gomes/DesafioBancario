@@ -18,11 +18,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class transacaoservice {
 
-    transacaorepository transacaoRepository;
-    contaservice contaService;
+    private final transacaorepository transacaoRepository;
+    private final contaservice contaService;
 
 
-    contarepository contaRepository;
+    final contarepository contaRepository;
 
     public transacaoresponse create(transacaorequest dto){
         if(dto == null){throw new IllegalArgumentException();}

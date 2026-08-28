@@ -7,6 +7,7 @@ import com.example.desafiobancario.model.usuario;
 import com.example.desafiobancario.repository.contarepository;
 import com.example.desafiobancario.repository.usuariorepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
@@ -14,9 +15,11 @@ import java.util.Random;
 @Service
 @RequiredArgsConstructor
 public class usuarioservice {
-    private usuariorepository usuarioRepository;
+    private final usuariorepository usuarioRepository;
 
-    private contarepository contaRepository;
+    private final contarepository contaRepository;
+
+    private final PasswordEncoder passwordEncoder;
 
     public usuariodtoresponse findByCpf(String cpf){
         usuario user = usuarioRepository.findByCpf(cpf).orElseThrow(() -> new RuntimeException("Não encontrado"));
@@ -31,7 +34,7 @@ public class usuarioservice {
         if(usuarioRepository.findByEmail(dto.email()).isPresent()){
             throw new RuntimeException("Email já cadastrado!");
         }
-        usuario usuario = new usuario(null, dto.nome(), dto.cpf(), dto.email(), dto.senha(),dto.tipo());
+        usuario usuario = new usuario(null, dto.nome(), dto.cpf(), dto.email(), passwordEncoder.encode(dto.senha()),dto.tipo());
         conta conta = new conta(aleatorioId(), 400.00, usuario); //400 reais só para testes
         usuarioRepository.save(usuario);
         contaRepository.save(conta);

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class transacaocontroller {
 
-    private transacaoservice transacaoService;
+    private final transacaoservice transacaoService;
 
     @PostMapping("/create")
     public ResponseEntity<transacaoresponse> CriarTransacao(@RequestBody transacaorequest dto){

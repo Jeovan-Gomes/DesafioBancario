@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class contaservice {
 
-    private contarepository contaRepository;
+    private final contarepository contaRepository;
 
     public conta findById(String id) {
         return contaRepository.findById(id).orElseThrow(() -> new RuntimeException("Conta não encontrada"));
